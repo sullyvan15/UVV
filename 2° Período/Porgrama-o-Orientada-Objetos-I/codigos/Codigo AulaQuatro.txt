@@ -1,0 +1,159 @@
+CLIENTE:
+
+public class Cliente {
+    private String nome, endereco, cpf;
+
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String endereco, String cpf) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+   
+}
+
+
+
+CONTA:
+
+public class Conta {
+    private int numeroConta;
+    private float saldo, limite;
+   
+    private Cliente titular;
+
+    public void depositar (float valor){
+        saldo = saldo + valor;
+       
+    }
+   
+    public boolean sacar (float valor){
+        if (saldo >= valor){
+        saldo = saldo - valor;
+        return true;
+        }
+        else
+        return false;
+    }
+   
+      public void transferir(float valor, Conta destino){
+          this.sacar(valor);
+          destino.depositar(valor);
+                   
+      }
+       
+    public Cliente getTitular() {
+        return titular;
+    }
+
+    public void setTitular(Cliente titular) {
+        this.titular = titular;
+    }
+
+    public Conta() {
+    }
+
+    public Conta(int numeroConta, float saldo, float limite) {
+        this.numeroConta = numeroConta;
+        this.saldo = saldo;
+        this.limite = limite;
+    }
+
+    public int getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void setNumeroConta(int numeroConta) {
+        this.numeroConta = numeroConta;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+
+    public float getLimite() {
+        return limite;
+    }
+
+    public void setLimite(float limite) {
+        this.limite = limite;
+    }
+   
+   
+}
+
+
+
+
+USACONTA: 
+
+public class UsaConta {
+    public static void main (String[] args) {
+    Cliente cli01 = new Cliente();
+    cli01.setNome("Eu");
+    cli01.setEndereco ("Mora na UVV");
+    cli01.setCpf ("123456789-0");
+   
+        System.out.println("Nome do cliente: " + cli01.getNome());
+       
+        Conta cc = new Conta (01, 100, 500);
+        cc.setTitular(cli01);
+       
+        System.out.println("Quem é  o titular de CC?: " + cc.getTitular().getNome());
+       
+        System.out.println("Antes: " + cc.getSaldo());
+        cc.depositar(50);
+        System.out.println("Depois: " + cc.getSaldo());
+        if(cc.sacar(40)) {
+            System.out.println("Saque com sucesso..");
+            System.out.println("Saldo: " + cc.getSaldo());
+            }
+        else {
+            System.out.println("Saldo insuficiente....");
+        }
+       
+        Conta cc2 = new Conta(01, 200, 1000);
+        System.out.println("Antes - Saldo CC2: " + cc2.getSaldo());
+        cc.transferir(20, cc2);
+       
+        System.out.println("Depois -  Saldo CC1: " + cc.getSaldo());
+        System.out.println("Depois -  Saldo CC2: " + cc2.getSaldo());
+       
+       
+       
+       
+       
+       
+    }
+}

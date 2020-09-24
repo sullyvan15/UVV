@@ -1,0 +1,38 @@
+Exercício 
+1)CREATE PROCEDURE
+
+render(IN taxa FLOAT(5,2))
+BEGIN
+UPDATE account
+SET avail_balance = avail_balance + (taxa * avail_balance);
+
+END
+
+
+
+Exercício 2) 
+CREATE FUNCTION
+cambio (taxa FLOAT (5, 2) )
+RETURNS FLOAT (10, 2)
+
+BEGIN
+DECLARE VALUE FLOAT (7, 2) ;
+SELECT SUM( avail_balance) INTO VALUE
+
+FROM account;
+RETURN taxa * VALUE ;
+END
+
+
+
+Exercício 3)
+CREATE TRIGGER trig1 AFTER INSERT ON TRANSACTION FOR EACH ROW
+BEGIN
+UPDATE account 
+
+SET avail_balance = IF(NEW.txn_type_cd = 'DBT', 
+                       avail_balance - (NEW.amount + 0.01 * NEW.amount),
+                       avail_balance + NEW.amount)
+WHERE account_id = NEW.account_id;
+END
+

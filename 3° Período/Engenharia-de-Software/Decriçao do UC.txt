@@ -1,0 +1,18 @@
+Código: -------
+Nome: verbo + <  >
+Descrição: <2 ou 3 linhas> >
+
+Pré - Condição 
+Ator:
+Fluxo Normal:
+1.   < Dialógo do ator e o sistema>
+2.
+3.
+4.
+Fluxo de execução
+1       <
+2
+3
+Pós Codificação
+|
+|   

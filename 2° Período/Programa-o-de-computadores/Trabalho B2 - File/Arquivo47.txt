@@ -1,0 +1,50 @@
+Fabiana Mendes
+Passo a passo
+01/08/2005
+217
+5.95
+Marta Almeida
+Levanta Poeira
+03/05/2004
+311
+7.40
+Cristina Arantes de Souza
+Papa-Legua
+05/12/1985
+431
+7.85
+Ricardo Menezes
+Mato Adentro
+23/08/1995
+296
+9.30
+Fabricio Reis Cunha
+who goes is happier
+14/01/1992
+294
+8.25
+Mara Santos Silva
+walking together
+19/04/2000
+358
+8.55
+Tiago Pereira Peres
+Acorda cedo
+20/03/1999
+408
+6.43
+Bianca Botelho Marques
+Arriba-Arriba
+426
+21/02/1996
+8.82
+Marcelo Marcos Souza
+Caminho do Sol
+395
+26/03/2003
+5.30
+Vitor Bastos Junior
+Ninguem pega
+10/08/1993
+490
+6.75

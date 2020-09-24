@@ -1,0 +1,60 @@
+Jogador 1:
+	  lider:     Bianca Botelho Marques
+	  Equipe:    Arriba-Arriba
+	  Fundacao:  426
+	  pontuacao: 21
+	  tempo :    0
+Jogador 2:
+	  lider:     Marcelo Marcos Souza
+	  Equipe:    Caminho do Sol
+	  Fundacao:  395
+	  pontuacao: 26
+	  tempo :    0
+Jogador 3:
+	  lider:     Fabiana Mendes
+	  Equipe:    Passo a passo
+	  Fundacao:  1
+	  pontuacao: 217
+	  tempo :    0
+Jogador 4:
+	  lider:     Fabricio Reis Cunha
+	  Equipe:    who goes is happier
+	  Fundacao:  14
+	  pontuacao: 294
+	  tempo :    0
+Jogador 5:
+	  lider:     Ricardo Menezes
+	  Equipe:    Mato Adentro
+	  Fundacao:  23
+	  pontuacao: 296
+	  tempo :    0
+Jogador 6:
+	  lider:     Marta Almeida
+	  Equipe:    Levanta Poeira
+	  Fundacao:  3
+	  pontuacao: 311
+	  tempo :    0
+Jogador 7:
+	  lider:     Mara Santos Silva
+	  Equipe:    walking together
+	  Fundacao:  19
+	  pontuacao: 358
+	  tempo :    0
+Jogador 8:
+	  lider:     Tiago Pereira Peres
+	  Equipe:    Acorda cedo
+	  Fundacao:  20
+	  pontuacao: 408
+	  tempo :    0
+Jogador 9:
+	  lider:     Cristina Arantes de Souza
+	  Equipe:    Papa-Legua
+	  Fundacao:  5
+	  pontuacao: 431
+	  tempo :    0
+Jogador 10:
+	  lider:     Vitor Bastos Junior
+	  Equipe:    Ninguem pega
+	  Fundacao:  10
+	  pontuacao: 490
+	  tempo :    0

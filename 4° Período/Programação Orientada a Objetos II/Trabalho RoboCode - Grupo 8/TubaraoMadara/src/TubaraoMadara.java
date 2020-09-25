@@ -10,7 +10,7 @@ import java.awt.geom.Point2D;
  * Classe principal
  * <p>
  * Estrategias: <br>
- * Targeting: Estimativa baseada em fator, implementando um sistema de bala virtual baseado <br>
+ * Alvo: Estimativa baseada em fator, implementando um sistema de bala virtual baseado <br>
  * em ondas para aprender rapidamente os possiveis angulos de acerto da bala com base <br>
  * nos padroes de movimento do inimigo. Prioriza o inimigo conhecido mais proximo como <br>
  * alvo para atirar. Versatil em combate corpo a corpo e 1v1; segmentado para permitir <br>
@@ -49,7 +49,7 @@ import java.awt.geom.Point2D;
         setBulletColor(Color.pink);
         setScanColor(Color.pink);
 
-        // Inicializar todos as variáveis
+        // Inicializa todos as variáveis
         Inimigos = new HashMap<String,inimigo>();
         alvo = null;
         double Poder;
@@ -60,7 +60,7 @@ import java.awt.geom.Point2D;
 
         while(true) {
             myLoc = new Point2D.Double(getX(), getY());
-           // Varredura, alvoing e disparo:
+           // Varredura, alvo e disparo:
             if(alvo == null) {		// Se não houver alvo, gire o radar para adquirir um
                 turnRadarRight(360);
             } else {					// Caso contrário, gire para o rosto e atire no alvo

@@ -1,7 +1,7 @@
 contanegativo = contageral = contapositivo = numPositivos = numNegativos = 0
 valor = 1
 
-print ( 'Digite 0 para sair do programa!)
+print('Digite 0 para sair do programa!' )
 while (valor != 0) ;
 valor = float (input ( 'Digite um mimero real: ") )
 

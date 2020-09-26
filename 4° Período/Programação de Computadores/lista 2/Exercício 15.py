@@ -5,6 +5,7 @@ numPositivos = 0
 numNegativos = 0
 valor = 1
 
+# necessita de revisão
 print('Digite 0 para sair do programa!' )
 while (valor != 0):
     valor = float (input('Digite um mimero real: '))

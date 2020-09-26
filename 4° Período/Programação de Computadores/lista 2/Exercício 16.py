@@ -4,17 +4,17 @@ maiorimpar = 0
 menorpar = menorimpar = 9999999999
 
 # OK
-while (i < 10):
+while i < 10:
     numero = float(input('Entre com um número: '))
-    if (numero % 2 == 0):
-        if (numero > maiorpar):
+    if numero % 2 == 0:
+        if numero > maiorpar:
             maiorpar = numero
-        if (numero < menorpar):
+        if numero < menorpar:
             menorpar = numero
     else:
-        if (numero > maiorimpar):
+        if numero > maiorimpar:
             maiorimpar = numero
-        if (numero < menorimpar):
+        if numero < menorimpar:
             menorimpar = numero
     i = i + 1
 

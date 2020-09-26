@@ -3,6 +3,7 @@ maiorpar = 0
 maiorimpar = 0
 menorpar = menorimpar = 9999999999
 
+# OK
 while (i < 10):
     numero = float(input('Entre com um número: '))
     if (numero % 2 == 0):

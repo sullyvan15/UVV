@@ -1,11 +1,11 @@
-somatorio = 0
-med = 0
-cont = 0
+soma = 0
+media = 0
+contador = 0
 
-for cont in range(200, 100, -1):
-    if cont % 11 == 0:
-        print(f'Multiplo: {cont}')
-        somatorio = cont + somatorio
-        med = somatorio / cont
-print(f'somatorio: {somatorio}')
-print(f'med: {med}')
+for contador in range(200, 100, -1):
+    if contador % 11 == 0:
+        print(f'Multiplo: {contador}')
+        soma = contador + soma
+        media = soma / contador
+print(f'soma: {soma}')
+print(f'media: {media}')

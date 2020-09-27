@@ -5,25 +5,20 @@ numPositivos = 0
 numNegativos = 0
 valor = 1
 
-# necessita de revisão
-print('Digite 0 para sair do programa!' )
-while (valor != 0):
-    valor = float (input('Digite um mimero real: '))
-
-    if (valor < 0):
-
-        contanegativo += 1
+while valor != 0:
+    valor = float(input('Digite um número real ou O para sair do programa: '))
+    if valor < 0 or valor > 0:  # Para excluir o 0 dos valores lidos
         contageral += 1
-    
-    elif (valor > 0) :
-        contapositivo += 1
-        contageral += 1
-
-    if (contageral != 0) :
+        if valor % 2 == 0:
+            contapositivo += 1
+        else:
+            contanegativo += 1
+    if contageral != 0:
         numPositivos = contapositivo / contageral * 100
         numNegativos = contanegativo / contageral * 100
-        print(f'nPositives: {numPositivos} 8')
-        print(f'Negatives: {numNegativos} :')
 
     else:
         print(f'Nenhum numero positivo e negativo lido. ')
+
+print(f'números postivos: {numPositivos: .1f} %')
+print(f'números negativos: {numNegativos: .1f} %')

@@ -6,4 +6,4 @@ resultado = tamanho / velocidade * 60
 print(f'\n Tempo para download: {resultado: .0f} minutos.')
 
 
-#falta os segundos
+    #falta os segundos

@@ -104,4 +104,37 @@ for i, word in enumerate(cartela1[:, 3][:rowlen ** 2]):
     y = int(i / rowlen) + 3.5
     ax.annotate(word, xy=(x, y), xytext=(x, y))
 
+for i, word in enumerate(cartela2[:, 0][:rowlen ** 2]):
+    x = (i % rowlen) + 0.4
+    y = int(i / rowlen) + 0.5
+    ax.annotate(word, xy=(x, y), xytext=(x, y))
+for i, word in enumerate(cartela2[:, 1][:rowlen ** 2]):
+    x = (i % rowlen) + 1.4
+    y = int(i / rowlen) + 1.5
+    ax.annotate(word, xy=(x, y), xytext=(x, y))
+for i, word in enumerate(cartela2[:, 2][:rowlen ** 2]):
+    x = (i % rowlen) + 2.4
+    y = int(i / rowlen) + 2.5
+    ax.annotate(word, xy=(x, y), xytext=(x, y))
+for i, word in enumerate(cartela2[:, 3][:rowlen ** 2]):
+    x = (i % rowlen) + 3.4
+    y = int(i / rowlen) + 3.5
+    ax.annotate(word, xy=(x, y), xytext=(x, y))
+
+for i, word in enumerate(cartela3[:, 0][:rowlen ** 2]):
+    x = (i % rowlen) + 0.4
+    y = int(i / rowlen) + 0.5
+    ax.annotate(word, xy=(x, y), xytext=(x, y))
+for i, word in enumerate(cartela3[:, 1][:rowlen ** 2]):
+    x = (i % rowlen) + 1.4
+    y = int(i / rowlen) + 1.5
+    ax.annotate(word, xy=(x, y), xytext=(x, y))
+for i, word in enumerate(cartela3[:, 2][:rowlen ** 2]):
+    x = (i % rowlen) + 2.4
+    y = int(i / rowlen) + 2.5
+    ax.annotate(word, xy=(x, y), xytext=(x, y))
+for i, word in enumerate(cartela3[:, 3][:rowlen ** 2]):
+    x = (i % rowlen) + 3.4
+    y = int(i / rowlen) + 3.5
+    ax.annotate(word, xy=(x, y), xytext=(x, y))
 plt.show()

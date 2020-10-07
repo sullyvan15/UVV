@@ -39,14 +39,17 @@ while True:
                 input('\nDigite seu nome: ')
 
                 # Usar as Funções (def) a partir aqui:
+
                 cartela1[:, 0] = random.sample(range(16, 159), TAMANHO)
                 cartela1[:, 1] = random.sample(range(16, 159), TAMANHO)
                 cartela1[:, 2] = random.sample(range(16, 159), TAMANHO)
                 cartela1[:, 3] = random.sample(range(16, 159), TAMANHO)
-                print([hex(x)[2:] for x in cartela1[:, 0]])
-                print([hex(x)[2:] for x in cartela1[:, 1]])
-                print([hex(x)[2:] for x in cartela1[:, 2]])
-                print([hex(x)[2:] for x in cartela1[:, 3]])
+                hexcartela10 = ([hex(x)[2:] for x in cartela1[:, 0]])
+                hexcartela11 = ([hex(x)[2:] for x in cartela1[:, 1]])
+                hexcartela12 = ([hex(x)[2:] for x in cartela1[:, 2]])
+                hexcartela13 = ([hex(x)[2:] for x in cartela1[:, 3]])
+                print(f'{hexcartela10} \n{hexcartela11} \n{hexcartela12} \n{hexcartela13}')
+
 
 
             elif (contador == 1):
@@ -87,54 +90,99 @@ ax.set_xticks(np.arange(0, rowlen + 1))
 ax.set_yticks(np.arange(0, rowlen + 1))
 plt.grid()
 
-for i, word in enumerate(cartela1[:, 0][:rowlen ** 2]):
-    x = (i % rowlen) + 0.4
-    y = int(i / rowlen) + 0.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela1[:, 1][:rowlen ** 2]):
-    x = (i % rowlen) + 1.4
-    y = int(i / rowlen) + 1.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela1[:, 2][:rowlen ** 2]):
-    x = (i % rowlen) + 2.4
-    y = int(i / rowlen) + 2.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela1[:, 3][:rowlen ** 2]):
-    x = (i % rowlen) + 3.4
-    y = int(i / rowlen) + 3.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
+hexcartela20 = ([hex(x)[2:] for x in cartela2[:, 0]])
+hexcartela21 = ([hex(x)[2:] for x in cartela2[:, 1]])
+hexcartela22 = ([hex(x)[2:] for x in cartela2[:, 2]])
+hexcartela23 = ([hex(x)[2:] for x in cartela2[:, 3]])
+hexcartela30 = ([hex(x)[2:] for x in cartela3[:, 0]])
+hexcartela31 = ([hex(x)[2:] for x in cartela3[:, 1]])
+hexcartela32 = ([hex(x)[2:] for x in cartela3[:, 2]])
+hexcartela33 = ([hex(x)[2:] for x in cartela3[:, 3]])
 
-for i, word in enumerate(cartela2[:, 0][:rowlen ** 2]):
-    x = (i % rowlen) + 0.4
-    y = int(i / rowlen) + 0.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela2[:, 1][:rowlen ** 2]):
-    x = (i % rowlen) + 1.4
-    y = int(i / rowlen) + 1.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela2[:, 2][:rowlen ** 2]):
-    x = (i % rowlen) + 2.4
-    y = int(i / rowlen) + 2.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela2[:, 3][:rowlen ** 2]):
-    x = (i % rowlen) + 3.4
-    y = int(i / rowlen) + 3.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
 
-for i, word in enumerate(cartela3[:, 0][:rowlen ** 2]):
-    x = (i % rowlen) + 0.4
-    y = int(i / rowlen) + 0.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela3[:, 1][:rowlen ** 2]):
-    x = (i % rowlen) + 1.4
-    y = int(i / rowlen) + 1.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela3[:, 2][:rowlen ** 2]):
-    x = (i % rowlen) + 2.4
-    y = int(i / rowlen) + 2.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-for i, word in enumerate(cartela3[:, 3][:rowlen ** 2]):
-    x = (i % rowlen) + 3.4
-    y = int(i / rowlen) + 3.5
-    ax.annotate(word, xy=(x, y), xytext=(x, y))
-plt.show()
+def Criartabela1():
+
+    for i, word in enumerate(hexcartela10[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 3.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela11[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 2.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela12[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 1.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela13[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 0.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    plt.show()
+
+def Criartabela2():
+
+    for i, word in enumerate(hexcartela20[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 3.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela21[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 2.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela22[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 1.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela23[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 0.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    plt.show()
+
+def Criartabela3():
+
+    for i, word in enumerate(hexcartela30[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 3.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela31[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 2.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela32[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 1.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    for i, word in enumerate(hexcartela33[:rowlen ** 2]):
+        x = (i % rowlen) + 0.4
+        y = int(i / rowlen) + 0.5
+        ax.annotate(word, xy=(x, y), xytext=(x, y))
+    plt.show()
+
+Criartabela1()
+Criartabela2()
+Criartabela3()
+
+pandaCartela1 = list(map(lambda x: str(x), random.sample(range(16, 40), TAMANHO)))
+
+import pandas
+pandaCartela1 = [hexcartela10, hexcartela11, hexcartela12, hexcartela13]
+pandaCartela2 = [hexcartela20, hexcartela21, hexcartela22, hexcartela23]
+pandaCartela3 = [hexcartela30, hexcartela31, hexcartela32, hexcartela33]
+
+cartela1 = pandas.DataFrame(pandaCartela1,
+                            index=['LINHA 1', 'LINHA 2', 'LINHA 3', 'LINHA 4'],
+                            columns=['COLUNA A', 'COLUNA B', 'COLUNA C', 'COLUNA D'])
+cartela2 = pandas.DataFrame(pandaCartela2,
+                            index=['LINHA 1', 'LINHA 2', 'LINHA 3', 'LINHA 4'],
+                            columns=['COLUNA A', 'COLUNA B', 'COLUNA C', 'COLUNA D'])
+cartela3 = pandas.DataFrame(pandaCartela3,
+                            index=['LINHA 1', 'LINHA 2', 'LINHA 3', 'LINHA 4'],
+                            columns=['COLUNA A', 'COLUNA B', 'COLUNA C', 'COLUNA D'])
+
+cartela1
+print("\n")
+cartela2
+print("\n")
+cartela3

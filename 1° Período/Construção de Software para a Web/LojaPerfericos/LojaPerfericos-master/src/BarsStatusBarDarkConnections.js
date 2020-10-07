@@ -1,24 +1,21 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import BarsStatusBarDarkWifiFull from "./BarsStatusBarDarkWifiFull";
-import BarsStatusBarDarkBatteryFull from "./BarsStatusBarDarkBatteryFull";
-import BarsStatusBarDarkCellularConnectionFull from "./BarsStatusBarDarkCellularConnectionFull";
+import Svg, { Path } from "react-native-svg";
 
-function BarsStatusBarDarkConnections(props) {
+function BarsStatusBarDarkCellularConnectionFull(props) {
   return (
     <View style={[styles.root, props.style]}>
-      <BarsStatusBarDarkWifiFull
-        style={styles.barsStatusBarDarkWifiFull}
-      ></BarsStatusBarDarkWifiFull>
-      <View style={styles.barsStatusBarDarkWifiFullFiller}></View>
-      <View style={styles.barsStatusBarDarkBatteryFullRow}>
-        <BarsStatusBarDarkBatteryFull
-          style={styles.barsStatusBarDarkBatteryFull}
-        ></BarsStatusBarDarkBatteryFull>
-        <BarsStatusBarDarkCellularConnectionFull
-          style={styles.barsStatusBarDarkCellularConnectionFull}
-        ></BarsStatusBarDarkCellularConnectionFull>
-      </View>
+      <View style={styles.cellularConnectionPathFiller}></View>
+      <Svg
+        viewBox="-0 -0 17 10.66666666666667"
+        style={styles.cellularConnectionPath}
+      >
+        <Path
+          strokeWidth={0}
+          fill="rgba(0,0,0,1)"
+          d="M1.00 6.67 L0.00 7.67 L0.00 9.67 L1.00 10.67 L2.00 10.67 L3.00 9.67 L3.00 7.67 L2.00 6.67 Z M4.67 5.67 L4.67 9.67 L5.67 10.67 L6.67 10.67 L7.67 9.67 L7.67 5.67 L6.67 4.67 L5.67 4.67 L4.67 5.67 Z M9.33 3.33 L9.33 9.67 L10.33 10.67 L11.33 10.67 L12.33 9.67 L12.33 3.33 L11.33 2.33 L10.33 2.33 L9.33 3.33 Z M15.00 0.00 L14.00 1.00 L14.00 9.67 L15.00 10.67 L16.00 10.67 L17.00 9.67 L17.00 1.00 L16.00 0.00 Z"
+        ></Path>
+      </Svg>
     </View>
   );
 }
@@ -28,34 +25,17 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row"
   },
-  barsStatusBarDarkWifiFull: {
-    width: 21,
-    height: 15,
-    backgroundColor: "transparent",
-    marginLeft: 20,
-    marginTop: 1
-  },
-  barsStatusBarDarkWifiFullFiller: {
+  cellularConnectionPathFiller: {
     flex: 1,
     flexDirection: "row"
   },
-  barsStatusBarDarkBatteryFull: {
-    width: 25,
-    height: 12,
+  cellularConnectionPath: {
+    width: 17,
+    height: 11,
     backgroundColor: "transparent",
-    marginRight: -68
-  },
-  barsStatusBarDarkCellularConnectionFull: {
-    width: 18,
-    height: 12,
-    backgroundColor: "transparent",
-    marginRight: 50
-  },
-  barsStatusBarDarkBatteryFullRow: {
-    height: 12,
-    flexDirection: "row",
-    marginTop: 2
+    borderColor: "transparent",
+    marginTop: 1
   }
 });
 
-export default BarsStatusBarDarkConnections;
+export default BarsStatusBarDarkCellularConnectionFull;

@@ -1,6 +1,6 @@
-contador = 0
-TAMANHO = 4
-aleatorio = 0
+
+
+# BIBLIOTECAS AQUI:
 
 import random
 import numpy
@@ -9,8 +9,13 @@ import matplotlib.pyplot as plt
 import matplotlib.style as style
 import numpy as np
 import random
-
+#---------------------------------------------------------------------------------------------------------------------------------------------------
 style.use('seaborn-poster')
+contador = 0
+TAMANHO = 4
+aleatorio = 0
+
+
 
 cartela1 = numpy.zeros((TAMANHO, TAMANHO), dtype=int)
 cartela2 = numpy.zeros((TAMANHO, TAMANHO), dtype=int)

@@ -108,22 +108,7 @@ while True:
 
 
 #======================================== PARTES DE TESTES ============================================
-hexcartela10 = np.array([hex(x)[2:] for x in cartela1[:, 0]])
-hexcartela11 = np.array([hex(x)[2:] for x in cartela1[:, 1]])
-hexcartela12 = np.array([hex(x)[2:] for x in cartela1[:, 2]])
-hexcartela13 = np.array([hex(x)[2:] for x in cartela1[:, 3]])
-hexcartela20 = np.array([hex(x)[2:] for x in cartela2[:, 0]])
-hexcartela21 = np.array([hex(x)[2:] for x in cartela2[:, 1]])
-hexcartela22 = np.array([hex(x)[2:] for x in cartela2[:, 2]])
-hexcartela23 = np.array([hex(x)[2:] for x in cartela2[:, 3]])
-hexcartela30 = np.array([hex(x)[2:] for x in cartela3[:, 0]])
-hexcartela31 = np.array([hex(x)[2:] for x in cartela3[:, 1]])
-hexcartela32 = np.array([hex(x)[2:] for x in cartela3[:, 2]])
-hexcartela33 = np.array([hex(x)[2:] for x in cartela3[:, 3]])
 
-CartelaTotal1 = [hexcartela10, hexcartela11, hexcartela12, hexcartela13]
-CartelaTotal2 = [hexcartela20, hexcartela21, hexcartela22, hexcartela23]
-CartelaTotal3 = [hexcartela30, hexcartela31, hexcartela32, hexcartela33]
 
 
 while True:

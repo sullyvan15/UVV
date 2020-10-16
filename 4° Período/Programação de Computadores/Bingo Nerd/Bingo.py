@@ -1,93 +1,150 @@
+# BIBLIOTECAS AQUI:
 import random
-class bingo:
-    _carton = []
-    _numerosRestantes = 16
-    _numerosBombo = []
-    _numerosSalido = []
-    _linea = False
-
-    def __init__(self):
-        self._carton = list(map(lambda x: str(x), random.sample(range(1, 100), 16)))
-        self._origin = self._carton.copy()
-        print(self._origin)
-        self._numerosBombo = [i for i in range(1, 100)]
-
-    def showCarton(self, origin=False):
-        """
-        Metodo que muestra el carton
-        Si recibe origin=True, muestra el carton inicial
-        """
-        carton = self._origin if origin else self._carton
-
-        for i in range(0, len(carton), 4):
-            print(carton[i:i + 4])
-
-    def getNumeroBombo(self):
-        """
-        Metodo que devuelve un numero del bombo
-        """
-        numeroPos = random.randint(0, len(self._numerosBombo) - 1)
-        numero = self._numerosBombo[numeroPos]
-        del self._numerosBombo[numeroPos]
-
-        self._numerosSalido.append(numero)
-        return numero
-
-    def marcarNumero(self, numeroMarcar):
-        """
-        Metodo que busca si el numero esta en nuestro carton
-        Devuelve True si el numero esta en nuestro carton
-        """
-        if numeroMarcar in self._carton:
-            self._carton[self._carton.index(numeroMarcar)] = "X"
-            self._numerosRestantes -= 1
-            return True
-        return False
-
-    def isLinea(self):
-        """
-        Metodo que comprueba si tenemos una linea horizontal cubierta
-        """
-        if self._linea == False and list(filter(lambda x: "".join(x) == "XXXX",
-                                                [self._carton[i:i + 4] for i in range(0, len(self._carton), 4)])):
-            self._linea = True
-            return True
-        return False
-
-    def getNumerosSalido(self):
-        """
-        Metodo que devuelve los numeros que han salido en el bombo
-        """
-        return self._numerosSalido
-
-    def getNumerosRestantes(self):
-        """
-        Metodo que devuelve la cantidad de numeros restantes para llenar nuestro carton
-        """
-        return self._numerosRestantes
+import numpy
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.style as style
 
 
-bingo = bingo()
-print("Este es tu carton!!!")
-bingo.showCarton()
+style.use('seaborn-poster')
+import numpy as np
 
-while bingo.getNumerosRestantes() > 0:
-    numeroBombo = str(bingo.getNumeroBombo())
-    if bingo.marcarNumero(numeroBombo):
-        print("---------------------------------------------")
-        print("Tienes el numero:", numeroBombo, "/", len(bingo.getNumerosSalido()), ", te quedan:",
-              bingo.getNumerosRestantes())
-        bingo.showCarton()
-        if bingo.isLinea():
-            print("\n\n   ##### LINEA #####\n\n")
-    else:
-        print("han salido el numero:", numeroBombo, "/", len(bingo.getNumerosSalido()), ", te quedan:",
-              bingo.getNumerosRestantes())
+# FUNÇÃO: Criar Cartela (4 x 4)
+import random
 
-    time.sleep(0.5)
+contador = 0
+TAMANHO = 4
+TAMANHO = 4
+cartela1 = numpy.zeros((TAMANHO, TAMANHO), dtype=int)
+cartela2 = numpy.zeros((TAMANHO, TAMANHO), dtype=int)
+cartela3 = numpy.zeros((TAMANHO, TAMANHO), dtype=int)
 
-print("\n\n\n   ##### BINGO #####\n")
-print("Este es tu carton inicial")
-bingo.showCarton(True)
-print("\nEstos son los", len(bingo.getNumerosSalido()), "numeros que han salido hasta completar el carton:",
-      bingo.getNumerosSalido())
+def CriarCartela1():
+    cartela1[:, 0] = random.sample(range(16, 159), TAMANHO)
+    cartela1[:, 1] = random.sample(range(16, 159), TAMANHO)
+    cartela1[:, 2] = random.sample(range(16, 159), TAMANHO)
+    cartela1[:, 3] = random.sample(range(16, 159), TAMANHO)
+
+
+def CriarCartela2():
+    cartela2[:, 0] = random.sample(range(16, 159), TAMANHO)
+    cartela2[:, 1] = random.sample(range(16, 159), TAMANHO)
+    cartela2[:, 2] = random.sample(range(16, 159), TAMANHO)
+    cartela2[:, 3] = random.sample(range(16, 159), TAMANHO)
+
+
+def CriarCartela3():
+    cartela3[:, 0] = random.sample(range(16, 159), TAMANHO)
+    cartela3[:, 1] = random.sample(range(16, 159), TAMANHO)
+    cartela3[:, 2] = random.sample(range(16, 159), TAMANHO)
+    cartela3[:, 3] = random.sample(range(16, 159), TAMANHO)
+
+
+# FUNÇÃO: Conversão Decimal-Hexadecimal ()
+def CartelaHex1():
+
+    hexcartela10 = ([hex(x)[2:] for x in cartela1[:, 0]])
+    hexcartela11 = ([hex(x)[2:] for x in cartela1[:, 1]])
+    hexcartela12 = ([hex(x)[2:] for x in cartela1[:, 2]])
+    hexcartela13 = ([hex(x)[2:] for x in cartela1[:, 3]])
+def CartelaHex2():
+    hexcartela20 = ([hex(x)[2:] for x in cartela2[:, 0]])
+    hexcartela21 = ([hex(x)[2:] for x in cartela2[:, 1]])
+    hexcartela22 = ([hex(x)[2:] for x in cartela2[:, 2]])
+    hexcartela23 = ([hex(x)[2:] for x in cartela2[:, 3]])
+def CartelaHex3():
+    hexcartela30 = ([hex(x)[2:] for x in cartela3[:, 0]])
+    hexcartela31 = ([hex(x)[2:] for x in cartela3[:, 1]])
+    hexcartela32 = ([hex(x)[2:] for x in cartela3[:, 2]])
+    hexcartela33 = ([hex(x)[2:] for x in cartela3[:, 3]])
+
+    # FUNÇÃO: Sortear uma (1) Pedra: RANDOM DECIMAL: [16, 159]
+
+
+def sortearpedra():
+
+    aleatorio = random.sample(range(16, 159), 1)
+    hex_aleatorio = ([hex(x)[2:] for x in aleatorio])
+    print(f'-------- NUMERO SORTEADO: {hex_aleatorio}')
+
+# FUNÇÃO: Conferir Pedra
+
+# FUNÇÃO: Exibir Cartela Hexadecimal: 4 x 4
+
+
+def printCartela1():
+
+    print(f'{CartelaHex1.hexcartela10} \n{CartelaHex1.hexcartela11} \n{CartelaHex1.hexcartela12} \n{CartelaHex1.hexcartela13}')
+
+def printCartela2():
+    print(f'{CartelaHex2.hexcartela20} \n{CartelaHex2.hexcartela21} \n{CartelaHex2.hexcartela22} \n{CartelaHex2.hexcartela23}')
+
+
+def printCartela3():
+    print(f'{CartelaHex3.hexcartela30} \n{CartelaHex3.hexcartela31} \n{CartelaHex3.hexcartela32} \n{CartelaHex3.hexcartela33}')
+
+
+printCartela1
+print(f'\n')
+printCartela2
+print(f'\n')
+printCartela3
+
+
+# FUNÇÃO: Exibir Pontuação
+
+# FUNÇÃO: Exibir Vencedor/Premiação
+
+# FUNÇÃO: Criar interface da cartela
+def InterfaceCartela():
+    contador = 0
+
+
+    while True:
+        print('\nBINGO HEXADECIMAL - MENU:')
+        print('Opção 1: Criar/Exibir Cartela: ')
+        print('Opção 2: Sortear/Exibir Pedra')
+        print('Opção ?: ... desenvolvida pelo grupo')
+        print('Opção 0: Sair do Programa')
+        opcao = int(input('Qual a sua Opção: '))
+
+        if opcao == 0:
+            print('TCHAU!!! - BOA SORTE')
+            break
+
+        elif opcao != 1 and opcao != 2:
+            print('Opcao Incorreta. Escolha de novo.')
+
+        elif opcao == 1:
+            while contador < 3:
+                if contador == 0:
+
+                    input('\nDigite seu nome: ')
+
+                    CriarCartela1()
+                    CartelaHex1()
+                    printCartela1()
+
+
+                elif (contador == 1):
+                    input('\nDigite seu nome: ')
+
+                    CriarCartela2()
+                    CartelaHex2()
+                    printCartela2()
+
+                else:
+                    input('\nDigite seu nome: ')
+
+                    CriarCartela3()
+                    CartelaHex3()
+                    printCartela3()
+
+                contador = contador + 1
+
+        elif (opcao == 2):
+            sortearpedra()
+
+
+InterfaceCartela()
+

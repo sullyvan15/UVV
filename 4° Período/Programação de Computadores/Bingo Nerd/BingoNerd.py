@@ -2,6 +2,7 @@
 
 # BIBLIOTECAS AQUI:
 import random
+import pandas
 import numpy
 import numpy as np
 import matplotlib.pyplot as plt
@@ -28,7 +29,7 @@ while True:
     print('\nBINGO HEXADECIMAL - MENU:')
     print('Opção 1: Criar/Exibir Cartela: ')
     print('Opção 2: Sortear/Exibir Pedra')
-    print('Opção ?: ... desenvolvida pelo grupo')
+    print('Opção 3: Gerar imagens das cartelas')
     print('Opção 0: Sair do Programa')
     opcao = int(input('Qual a sua Opção: '))
 
@@ -36,14 +37,14 @@ while True:
         print('TCHAU!!! - BOA SORTE')
         break
 
-    elif opcao != 1 and opcao != 2:
+    elif opcao != 1 and opcao != 2 and opcao != 3:
         print('Opcao Incorreta. Escolha de novo.')
 
     elif opcao == 1:
         while contador < 3:
             if contador == 0:
 
-                input('\n Digite seu nome ou Aperte ENTER para ignorar: ')
+                input('\nDigite seu nome (Opcional): ')
 
                 # Aloca os números gerados automaticamente da condição (16, 159) em todas as linhas em cada coluna especificada da cartela 1
                 cartela1[:, 0] = np.array(random.sample(range(16, 159), TAMANHO)).reshape(TAMANHO)
@@ -52,14 +53,16 @@ while True:
                 cartela1[:, 3] = np.array(random.sample(range(16, 159), TAMANHO)).reshape(TAMANHO)
 
                 # Exibição dos números gerados em formato hexadecimal
-                print([hex(x)[2:] for x in cartela1[:, 0]])
-                print([hex(x)[2:] for x in cartela1[:, 1]])
-                print([hex(x)[2:] for x in cartela1[:, 2]])
-                print([hex(x)[2:] for x in cartela1[:, 3]])
+                hexcartela10 = np.array([hex(x)[2:] for x in cartela1[:, 0]])
+                hexcartela11 = np.array([hex(x)[2:] for x in cartela1[:, 1]])
+                hexcartela12 = np.array([hex(x)[2:] for x in cartela1[:, 2]])
+                hexcartela13 = np.array([hex(x)[2:] for x in cartela1[:, 3]])
+                print(f'{hexcartela10} \n{hexcartela11} \n{hexcartela12} \n{hexcartela13}')
+
 
 
             elif contador == 1:
-                input('\n Digite seu nome ou Aperte ENTER para ignorar: ')
+                input('\nDigite seu nome (Opcional): ')
 
                 # Aloca os números gerados automaticamente da condição (16, 159) em todas as linhas em cada coluna especificada da cartela 2
                 cartela2[:, 0] = np.array(random.sample(range(16, 159), TAMANHO)).reshape(TAMANHO)
@@ -68,12 +71,16 @@ while True:
                 cartela2[:, 3] = np.array(random.sample(range(16, 159), TAMANHO)).reshape(TAMANHO)
 
                 # Exibição dos números gerados em formato hexadecimal
-                print([hex(x)[2:] for x in cartela2[:, 0]])
-                print([hex(x)[2:] for x in cartela2[:, 1]])
-                print([hex(x)[2:] for x in cartela2[:, 2]])
-                print([hex(x)[2:] for x in cartela2[:, 3]])
+                hexcartela20 = np.array([hex(x)[2:] for x in cartela2[:, 0]])
+                hexcartela21 = np.array([hex(x)[2:] for x in cartela2[:, 1]])
+                hexcartela22 = np.array([hex(x)[2:] for x in cartela2[:, 2]])
+                hexcartela23 = np.array([hex(x)[2:] for x in cartela2[:, 3]])
+                print(f'{hexcartela20} \n{hexcartela21} \n{hexcartela22} \n{hexcartela23}')
+
+
+
             else:
-                input('\n Digite seu nome ou Aperte ENTER para ignorar: ')
+                input('\nDigite seu nome (Opcional): ')
 
                 # Aloca os números gerados automaticamente da condição (16, 159) em todas as linhas em cada coluna especificada da cartela 1
                 cartela3[:, 0] = np.array(random.sample(range(16, 159), TAMANHO)).reshape(TAMANHO)
@@ -82,47 +89,31 @@ while True:
                 cartela3[:, 3] = np.array(random.sample(range(16, 159), TAMANHO)).reshape(TAMANHO)
 
                 # Exibição dos números gerados em formato hexadecimal
-                print([hex(x)[2:] for x in cartela3[:, 0]])
-                print([hex(x)[2:] for x in cartela3[:, 1]])
-                print([hex(x)[2:] for x in cartela3[:, 2]])
-                print([hex(x)[2:] for x in cartela3[:, 3]])
+                hexcartela30 = np.array([hex(x)[2:] for x in cartela3[:, 0]])
+                hexcartela31 = np.array([hex(x)[2:] for x in cartela3[:, 1]])
+                hexcartela32 = np.array([hex(x)[2:] for x in cartela3[:, 2]])
+                hexcartela33 = np.array([hex(x)[2:] for x in cartela3[:, 3]])
+                print(f'{hexcartela30} \n{hexcartela31} \n{hexcartela32} \n{hexcartela33}')
+
 
 
             contador = contador + 1
 # FUNÇÃO: Sortear uma (1) Pedra: RANDOM DECIMAL: [16, 159]
     elif opcao == 2:
-        aleatorio = np.array(random.sample(range(16, 159), TAMANHO)).reshape(TAMANHO)
-        hex_aleatorio = np.array([hex(x)[2:] for x in aleatorio])
-        print(f'-------- NUMERO SORTEADO: {hex_aleatorio}')
-        while True:
-            if set(hex_aleatorio) & set(CartelaTotal1) != 0:
-                Jogador1 = + 1
-            if set(hex_aleatorio) & set(CartelaTotal2) != 0:
-                Jogador2 = + 1
-            if set(hex_aleatorio) & set(CartelaTotal3) != 0:
-                Jogador3 = + 1
-            if Jogador1 or Jogador2 or Jogador3 == 16:
-                break
+        aleatorio = np.array(random.sample(range(16, 159), 1)).reshape(1)
+        hex_aleatorio = ([hex(x)[2:] for x in aleatorio])
 
+
+
+        print(f'-------- NUMERO SORTEADO: {hex_aleatorio}')
 
 
 
 #======================================== PARTES DE TESTES ============================================
 
-
-
-while True:
-    if set(hex_aleatorio) & set(CartelaTotal1) != 0:
-        Jogador1 =+ 1
-    if set(hex_aleatorio) & set(CartelaTotal2) != 0:
-        Jogador2 =+ 1
-    if set(hex_aleatorio) & set(CartelaTotal3) != 0:
-        Jogador3 =+ 1
-    if Jogador1 or Jogador2 or Jogador3 == 16:
-        break
-
-
-
+CartelaTotal1 = [hexcartela10, hexcartela11, hexcartela12, hexcartela13]
+CartelaTotal2 = [hexcartela20, hexcartela21, hexcartela22, hexcartela23]
+CartelaTotal3 = [hexcartela30, hexcartela31, hexcartela32, hexcartela33]
 
 
 # --------------------------------------------- Metsplot -------------------------------------------------
@@ -200,20 +191,16 @@ Criartabela3() #Adicionar em uma nova célula
 
 #-----------------------------------PANDA------------------------------------------------------------------
 
-import pandas
-pandaCartela1 = [hexcartela10, hexcartela11, hexcartela12, hexcartela13]
-pandaCartela2 = [hexcartela20, hexcartela21, hexcartela22, hexcartela23]
-pandaCartela3 = [hexcartela30, hexcartela31, hexcartela32, hexcartela33]
 
-cartela1 = pandas.DataFrame(pandaCartela1,
-                            index=['LINHA 1', 'LINHA 2', 'LINHA 3', 'LINHA 4'],
-                            columns=['COLUNA A', 'COLUNA B', 'COLUNA C', 'COLUNA D'])
-cartela2 = pandas.DataFrame(pandaCartela2,
-                            index=['LINHA 1', 'LINHA 2', 'LINHA 3', 'LINHA 4'],
-                            columns=['COLUNA A', 'COLUNA B', 'COLUNA C', 'COLUNA D'])
-cartela3 = pandas.DataFrame(pandaCartela3,
-                            index=['LINHA 1', 'LINHA 2', 'LINHA 3', 'LINHA 4'],
-                            columns=['COLUNA A', 'COLUNA B', 'COLUNA C', 'COLUNA D'])
+cartela1 = pandas.DataFrame(CartelaTotal1,
+                            index=['1', '2', '3', '4'],
+                            columns=['B', 'IN', 'G', 'O'])
+cartela2 = pandas.DataFrame(CartelaTotal2,
+                            index=['1', '2', '3', '4'],
+                            columns=['B', 'IN', 'G', 'O'])
+cartela3 = pandas.DataFrame(CartelaTotal3,
+                            index=['1', '2', '3', '4'],
+                            columns=['B', 'IN', 'G', 'O'])
 
 """
 cartela1

@@ -34,8 +34,8 @@ public class ControleGestao {
         a3.setNome("Silva");
 //        daoA.salvar(a3);
         
-        
-       
+
+
         Livro l1 = new Livro();
         l1.setTitulo("Programação com Café");
 //      //daoA.consultar("Rosalen");  => id = 2

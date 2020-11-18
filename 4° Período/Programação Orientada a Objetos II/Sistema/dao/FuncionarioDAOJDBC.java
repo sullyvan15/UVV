@@ -9,28 +9,28 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelo.Autor;
+import modelo.Funcionario;
 import tools.DAOBaseJDBC;
 
 
-public class AutorDAOJDBC extends DAOBaseJDBC implements AutorDAO{
+public class FuncionarioDAOJDBC extends DAOBaseJDBC implements FuncionarioDAO{
 
-    public AutorDAOJDBC() throws ClassNotFoundException, SQLException {
+    public FuncionarioDAOJDBC() throws ClassNotFoundException, SQLException {
     }
 
     @Override
-    public boolean salvar(Autor autor) {
+    public boolean salvar(Funcionario Funcionario) {
 
         PreparedStatement pstm;
-        String sql = "INSERT INTO Autor (nome) VALUES (?)";
+        String sql = "INSERT INTO Funcionario (nome) VALUES (?)";
         
         try {
             pstm = con.prepareStatement(sql);
-            pstm.setString(1, autor.getNome());
+            pstm.setString(1, Funcionario.getNome());
             pstm.executeUpdate();   
             
         } catch (SQLException ex) {
-            Logger.getLogger(AutorDAOJDBC.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FuncionarioDAOJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }        
         
         return true;
@@ -38,7 +38,7 @@ public class AutorDAOJDBC extends DAOBaseJDBC implements AutorDAO{
     }
 
     @Override
-    public Autor consultar(String nome) {
+    public Funcionario consultar(String nome) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

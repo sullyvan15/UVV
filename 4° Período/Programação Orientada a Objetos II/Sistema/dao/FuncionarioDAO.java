@@ -5,11 +5,11 @@
  */
 package dao;
 
-import modelo.Autor;
+import modelo.Funcionario;
 
 
-public interface AutorDAO {
-    public boolean salvar(Autor autor);
-    public Autor consultar(String nome);
+public interface FuncionarioDAO {
+    public boolean salvar(Funcionario funcionario);
+    public Funcionario consultar(String nome);
     
 }

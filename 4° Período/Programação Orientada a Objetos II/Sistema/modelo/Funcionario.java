@@ -5,15 +5,15 @@
  */
 package modelo;
 
-/
-public class Autor {
+
+public class Funcionario {
     private Integer id;
     private String nome;        
 
-    public Autor() {
+    public Funcionario() {
     }
 
-    public Autor(Integer id, String nome) {
+    public Funcionario(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -36,7 +36,7 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "Autor{" + "id=" + id + ", nome=" + nome + '}';
+        return "Funcionario{" + "id=" + id + ", nome=" + nome + '}';
     }
     
 }

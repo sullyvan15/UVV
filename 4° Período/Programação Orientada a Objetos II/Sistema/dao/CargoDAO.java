@@ -5,9 +5,9 @@
  */
 package dao;
 
-import modelo.Livro;
+import modelo.Cargo;
 
 
-public interface LivroDAO {
-    public boolean salvar(Livro livro);
+public interface CargoDAO {
+    public boolean salvar(Cargo cargo);
 }

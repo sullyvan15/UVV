@@ -29,19 +29,19 @@ public class ControleGestao {
 
 
         Cargo l1 = new Cargo();
-        l1.setCargo("Gerente");
+        l1.setNomeCargo("Gerente");
 
         Cargo l2 = new Cargo();
-        l2.setCargo("Programador");
+        l2.setNomeCargo("Programador");
 
         Cargo l3 = new Cargo();
-        l3.setCargo("Assistente técnico");
+        l3.setNomeCargo("Assistente técnico");
 
         a1.setId(1);
         a3.setId(3);
 
-        l1.adicionarFuncionario(a1);
-        l1.adicionarFuncionario(a3);
+        l1.adicionarFuncionarios(a1);
+        l1.adicionarFuncionarios(a3);
         CargoDAO daoL = new CargoDAOJDBC();
         daoL.salvar(l1);
         

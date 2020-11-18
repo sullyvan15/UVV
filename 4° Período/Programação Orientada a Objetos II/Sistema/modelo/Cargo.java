@@ -9,28 +9,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Livro {
+public class Cargo {
     private Integer id;
-    private String titulo;    
+    private String NomeCargo;    
 
-    private List<Autor> listaAutores;
+    private List<Funcionario> ListaFuncionarios;
 
-    public void adicionarAutor(Autor a){
-        listaAutores.add(a);
+    public void adicionarFuncionarios(Funcionario a){
+        ListaFuncionarios.add(a);
     }
     
-    public Livro() {
-        listaAutores = new ArrayList<>();
+    public Cargo() {
+        ListaFuncionarios = new ArrayList<>();
     }
 
-    public Livro(Integer id, String titulo) {
+    public Cargo(Integer id, String NomeCargo) {
         this();
         this.id = id;
-        this.titulo = titulo;
+        this.NomeCargo = NomeCargo;
     }
 
-    public List<Autor> getListaAutores() {
-        return listaAutores;
+    public List<Funcionario> getListaFuncionarios() {
+        return ListaFuncionarios;
     }
 
     public Integer getId() {
@@ -41,12 +41,12 @@ public class Livro {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getNomeCargo() {
+        return NomeCargo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setNomeCargo(String NomeCargo) {
+        this.NomeCargo = NomeCargo;
     }
 
 

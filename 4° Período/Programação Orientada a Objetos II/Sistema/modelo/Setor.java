@@ -1,9 +1,8 @@
 package modelo;
-import modelo.Funcionario;
-import dao.CargoDAO;
-import dao.SetorDAO;
-import dao.FuncionarioDAO;
-import modelo.Cargo;
+
+
+
+import java.util.List;
 
 
 public class Setor {
@@ -18,20 +17,16 @@ public class Setor {
        funcionarios.add(a);
     }
     
-    public Setor() {
-        ListaFuncionarios = new ArrayList<>();
-    }
+    
 
-    public Setor(Integer id, String NomeSetor) {
-        this();
+    public Setor(Integer id, String NomeSetor, String Atribuicoes) {
+        
         this.id = id;
         this.NomeSetor = NomeSetor;
         this.Atribuicoes = Atribuicoes;
     }
 
-    public List<Funcionario> getListaFuncionarios() {
-        return ListaFuncionarios;
-    }
+    
 
     public Integer getId() {
         return id;

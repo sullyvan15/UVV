@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 
 public class Funcionario {
     private Integer id;
-    private String nome;        
+    private String nome; 
+    private String dataAdmissao;
+
+       
 
     public Funcionario() {
     }
@@ -16,6 +15,7 @@ public class Funcionario {
     public Funcionario(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
+        this.dataAdmissao = dataAdmissao;
     }
 
     public Integer getId() {
@@ -32,6 +32,13 @@ public class Funcionario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    public String getdataAdmissao() {
+        return dataAdmissao;
+    }
+
+    public void setdataAdmissao(String nome) {
+        this.dataAdmissao = dataAdmissao;
     }
 
     @Override

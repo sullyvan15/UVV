@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import modelo.Funcionario;
 import modelo.Setor;
 import tools.DAOBaseJDBC;
-import modelo.Cargo;
+
 
 public class SetorDAOJDBC extends DAOBaseJDBC implements SetorDAO{
 
@@ -63,11 +63,7 @@ public class SetorDAOJDBC extends DAOBaseJDBC implements SetorDAO{
            pstm.setInt(1, idSetorRecuperado);
     
            
-           List<Funcionario> funcionarios = l.getListaFuncionarios();
-           for(Funcionario elem : funcionarios) {
-                pstm.setInt(2, elem.getId());
-                pstm.executeUpdate();   
-           }
+           
         }
     }
     

@@ -8,7 +8,8 @@ package Controllers;
 
 import dao.JDBC.InstrutorDAOJDBC;
 import modelo.Instrutor;
-import modelo.Oferta;
+
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,11 +21,7 @@ public class InstrutorController {
     }
     
     public Boolean salvar(Instrutor instrutor) {
-        if(conn.salvar(instrutor)){
-            return true;
-        } else {
-            return false;
-        }
+        return conn.salvar(instrutor);
     }
     
     public List<Instrutor> consultar(String nome){

@@ -1,10 +1,16 @@
 
 package Visao;
+import Controllers.cursoontroller;
 import Controllers.InstrutorController;
 import Controllers.OfertaController;
+import static DAO.Tabelas.Tabelas.curso;
+import static DAO.Tabelas.Tabelas.instrutor;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.Oferta;
 import modelo.Curso;
 import modelo.Instrutor;
@@ -62,6 +68,8 @@ public class NewJPanel1 extends javax.swing.JPanel {
         InputDataFinalOferta = new javax.swing.JTextField();
         InputSituacaoOferta = new javax.swing.JTextField();
         InputIdInstrutorOferta = new javax.swing.JTextField();
+        InputCursoOferta = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         InputBuscaOferta = new javax.swing.JTextField();
@@ -177,6 +185,11 @@ public class NewJPanel1 extends javax.swing.JPanel {
         });
 
         BotaoBuscaInsrutor.setText("Buscar");
+        BotaoBuscaInsrutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoBuscaInsrutorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -242,6 +255,8 @@ public class NewJPanel1 extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setText("Curso:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -260,9 +275,12 @@ public class NewJPanel1 extends javax.swing.JPanel {
                                             .addGap(88, 88, 88)
                                             .addComponent(InputIDOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                            .addComponent(StatusO)
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(StatusO)
+                                                .addComponent(jLabel4))
                                             .addGap(18, 18, 18)
                                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(InputCursoOferta)
                                                 .addComponent(InputDataFinalOferta)
                                                 .addComponent(InputDataInicialOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(InputSituacaoOferta, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))))
@@ -297,7 +315,11 @@ public class NewJPanel1 extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(StatusO)
                     .addComponent(InputSituacaoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InputCursoOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InstrutorO)
                     .addComponent(InputIdInstrutorOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -317,6 +339,11 @@ public class NewJPanel1 extends javax.swing.JPanel {
         });
 
         BotaoBuscaOferta.setText("Buscar");
+        BotaoBuscaOferta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoBuscaOfertaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -433,6 +460,11 @@ public class NewJPanel1 extends javax.swing.JPanel {
         });
 
         BotaoBuscaCurso.setText("Buscar");
+        BotaoBuscaCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoBuscaCursoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -513,32 +545,57 @@ public class NewJPanel1 extends javax.swing.JPanel {
         try {
             controller = new OfertaController();
 
-            int id = Integer.parseInt(InputIDOferta.getText());
+            long id = Integer.parseInt(InputIDOferta.getText());
             String dataInicial = InputDataInicialOferta.getText();
             String dataFinal = InputDataFinalOferta.getText();
-            String status = InputSituacaoOferta.getText();
-            int instrutor = Integer.parseInt(InputIdInstrutorOferta.getText());
+            int status = Integer.parseInt(InputSituacaoOferta.getText());
+            long curso = Integer.parseInt(InputCursoOferta.getText());
+            long instrutor = Integer.parseInt(InputIdInstrutorOferta.getText());
             
-            Oferta Oferta = new Oferta(id, dataInicial, dataFinal, status, instrutor);
+            
+            Oferta Oferta = new Oferta(id, dataInicial, dataFinal, status, curso, instrutor);
+            if(controller.salvar(Oferta)){
+                System.out.println("cadastrado com sucesso!");
+                InputIDOferta.setText("");
+                InputDataInicialOferta.setText("");
+                InputDataFinalOferta.setText("");
+                InputSituacaoOferta.setText("");
+                InputCursoOferta.setText("");
+                InputIdInstrutorOferta.setText("");
+                
+            } else {
+                System.out.println("Ocorreu um erro ao tentar cadastrar.");
+            }
+            
             
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(NewJPanel1.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Ocorreu um erro ao tentar cadastrar o Oferta.");
+            System.out.println("Ocorreu um erro ao tentar cadastrar.");
         }
     }//GEN-LAST:event_CadastrarOfertaActionPerformed
 
     private void CadastrarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarCursoActionPerformed
-        Cursocontroller controller;
+        cursoontroller controller;
         try {
-            controller = new Cursocontroller();
+            controller = new cursoontroller();
 
-            int id = Integer.parseInt(InputIdCurso.getText());
+            long id = Integer.parseInt(InputIdCurso.getText());
             String nome = NomeInputCurso.getText();
             String ementa = InputEmentaCurso.getText();
-            int carga = Integer.parseInt(InputCargaCurso.getText());
+            String cargaHoraria = InputCargaCurso.getText();
             
             
-            Curso Curso = new Curso(id, nome, ementa, carga);
+            Curso Curso = new Curso(id, nome, ementa, cargaHoraria);
+            if(controller.salvar(Curso)){
+                System.out.println("cadastrado com sucesso!");
+                InputIdCurso.setText("");
+                NomeInputCurso.setText("");
+                InputEmentaCurso.setText("");
+                InputCargaCurso.setText("");
+                
+            } else {
+                System.out.println("Ocorreu um erro ao tentar cadastrar.");
+            }
             
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(NewJPanel1.class.getName()).log(Level.SEVERE, null, ex);
@@ -567,13 +624,24 @@ public class NewJPanel1 extends javax.swing.JPanel {
         try {
             controller = new InstrutorController();
 
-            int id = Integer.parseInt(InputIDInstrutor.getText());
+            long id = Integer.parseInt(InputIDInstrutor.getText());
             String nome = InputNomeInstrutor.getText();
             String cpf = InputCPFInstrutor.getText();
             String endereco = InputEnderecoInstrutor.getText();
             String celular = InputCelularInstrutor.getText();
             
             Instrutor Instrutor = new Instrutor(id, nome, cpf, endereco, celular);
+            if(controller.salvar(Instrutor)){
+                System.out.println("cadastrado com sucesso!");
+                InputIDInstrutor.setText("");
+                InputNomeInstrutor.setText("");
+                InputCPFInstrutor.setText("");
+                InputEnderecoInstrutor.setText("");
+                InputCelularInstrutor.setText("");
+                
+            } else {
+                System.out.println("Ocorreu um erro ao tentar cadastrar.");
+            }
             
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(NewJPanel1.class.getName()).log(Level.SEVERE, null, ex);
@@ -592,6 +660,37 @@ public class NewJPanel1 extends javax.swing.JPanel {
     private void InputIdCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputIdCursoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InputIdCursoActionPerformed
+
+    private void BotaoBuscaOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoBuscaOfertaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoBuscaOfertaActionPerformed
+
+    private void BotaoBuscaInsrutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoBuscaInsrutorActionPerformed
+           String consultarNome = InputBuscaInstrutor.getText();
+
+            InstrutorController controller;
+            try {
+                controller = new InstrutorController();
+                
+                List Instrutor = controller.consultar(consultarNome);
+                List<String> instrutorLido = new ArrayList();
+
+                   instrutorLido.forEach((String instrutor) -> {
+                   instrutorLido.add(Instrutor.toString());
+               });
+                System.out.println(Instrutor);
+                System.out.println("Buscado com sucesso");
+            } catch (ClassNotFoundException ex) {
+                System.out.println("opa, meu bom, parece que alguma classe deu ruim");
+            } catch (SQLException ex) {
+                 System.out.println("opa, meu bom, parece que o Sql deu ruim");
+            }
+        
+    }//GEN-LAST:event_BotaoBuscaInsrutorActionPerformed
+
+    private void BotaoBuscaCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoBuscaCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotaoBuscaCursoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -613,6 +712,7 @@ public class NewJPanel1 extends javax.swing.JPanel {
     private javax.swing.JTextField InputCPFInstrutor;
     private javax.swing.JTextField InputCargaCurso;
     private javax.swing.JTextField InputCelularInstrutor;
+    private javax.swing.JTextField InputCursoOferta;
     private javax.swing.JTextField InputDataFinalOferta;
     private javax.swing.JTextField InputDataInicialOferta;
     private javax.swing.JTextField InputEmentaCurso;
@@ -635,6 +735,7 @@ public class NewJPanel1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

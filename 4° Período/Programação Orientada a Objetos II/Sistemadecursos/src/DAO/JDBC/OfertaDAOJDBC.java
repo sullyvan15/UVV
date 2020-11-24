@@ -28,7 +28,7 @@ public class OfertaDAOJDBC extends DAOBaseJDBC implements OfertaDAO {
         PreparedStatement stmt = null;
         try {  
             stmt = conn.prepareStatement(
-                    "INSERT INTO Oferta(dataInicial,dataFinal,status,curso_id,instrutor_id) VALUES(?,?,?,?)");
+                    "INSERT INTO Oferta(dataInicial,dataFinal,status,curso_id,instrutor_id) VALUES(?,?,?,?,?)");
             stmt.setString(1, oferta.getDataInicial());
             stmt.setString(2, oferta.getDataFinal());
             stmt.setInt(3, oferta.getStatus());
